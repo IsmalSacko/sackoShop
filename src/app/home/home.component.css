@@ -1,0 +1,72 @@
+/* Hero Section */
+.hero-section {
+  /*background: url('assets/hero-image.jpg') center/cover no-repeat;*/
+  color: #000000;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+
+/* Catégories */
+.category-card {
+  text-align: center;
+  margin: 20px 0;
+  transition: transform 0.3s ease;
+}
+
+.category-card img {
+  width: 70%;
+
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.category-card:hover {
+  transform: scale(1.05);
+}
+
+
+/* Produits */
+.product-card {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.category-card a {
+  text-decoration: none;
+  color: inherit; /* Optionnel : garde la couleur du texte */
+}
+
+.category-card a h3 {
+
+  opacity: 0.7;
+
+}
+
+.prix_euro{
+  color: #ff9900 !important;
+  font-size: small;
+}

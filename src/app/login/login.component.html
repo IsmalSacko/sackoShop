@@ -1,0 +1,34 @@
+<div class="login-wrapper">
+  <div class="login-box">
+    <h2>Connexion</h2>
+
+    <form (submit)="login(); $event.preventDefault()">
+      <div class="input-group">
+        <input type="text" [(ngModel)]="username" name="username" placeholder="Nom d'utilisateur" required>
+      </div>
+
+      <div class="input-group">
+        <input type="password" [(ngModel)]="password" name="password" placeholder="Mot de passe" required>
+      </div>
+
+      <button type="submit" [disabled]="loading">
+        <span *ngIf="!loading">Se connecter</span>
+        <span *ngIf="loading" class="loader"></span>
+      </button>
+
+      <p class="register-link">
+        Pas encore de compte ? <a routerLink="/register">Inscrivez-vous</a>
+      </p>
+    </form>
+
+    <!-- Message flash d'authentification -->
+    <div *ngIf="loading" class="loading-message">
+      ⏳ Connexion en cours...
+    </div>
+
+    <!-- Message de succès -->
+    <div *ngIf="successMessage" class="success-message">
+      ✅ {{ successMessage }}
+    </div>
+  </div>
+</div>

@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+::ng-deep body {
+  padding-top: 80px !important;
+}
+
+@media screen and (min-width: 375px) and (max-width: 667px) {
+  ::ng-deep body {
+    padding-top: 100px !important;
+  }
+
+  ::ng-deep .back-button-container {
+    top: 20px !important;
+    left: 15px !important;
+  }
+
+  ::ng-deep .back-button {
+    padding: 10px 15px !important;
+    font-size: 1.2rem !important;
+  }
+}

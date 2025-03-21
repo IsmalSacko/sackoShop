@@ -1,0 +1,11 @@
+<div *ngIf="products.length > 0; else noProducts">
+  <div *ngFor="let product of products" class="card">
+    <img [src]="product.imageUrls[0]" alt="{{ product.title }}" width="100%" />
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.price }} €</p>
+  </div>
+</div>
+
+<ng-template #noProducts>
+  <p>Aucun produit disponible.</p>
+</ng-template>
