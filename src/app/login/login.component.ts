@@ -11,7 +11,8 @@ import {NgIf} from '@angular/common';
   imports: [
     RouterLink,
     FormsModule,
-    NgIf
+    NgIf,
+
   ],
   styleUrls: ['./login.component.css']
 })
@@ -28,6 +29,7 @@ export class LoginComponent {
   ) {
     // Écoute les messages de succès
     this.notificationService.currentMessage.subscribe(message => {
+
       if (message?.type === 'success') {
         this.successMessage = message.text;
         setTimeout(() => {

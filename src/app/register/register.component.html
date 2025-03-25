@@ -1,0 +1,50 @@
+<div class="register-wrapper">
+  <div class="register-box">
+    <h2>Inscription</h2>
+
+    <form (submit)="register(); $event.preventDefault()">
+      <div class="input-group">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <input type="text" [(ngModel)]="username" name="username" placeholder="Nom d'utilisateur" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-lock" aria-hidden="true"></i>
+        <input type="password" [(ngModel)]="password" name="password" placeholder="Mot de passe" required>
+
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-lock" aria-hidden="true"></i>
+        <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Confirmer le mot de passe" required>
+      </div>
+
+      <button class="btn" type="submit" [disabled]="loading">
+        <span *ngIf="!loading">S'inscrire</span>
+        <span *ngIf="loading" class="loader"></span>
+      </button>
+
+      <p class="login-link">
+        Déjà inscrit ? <a routerLink="/login">Connectez-vous</a>
+      </p>
+    </form>
+
+    <!-- Messages -->
+    <div *ngIf="loading" class="loading-message">
+      ⏳ Inscription en cours...
+    </div>
+
+    <div *ngIf="successMessage" class="success-message">
+      ✅ {{ successMessage }}
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      ❌ {{ errorMessage }}
+    </div>
+  </div>
+</div>

@@ -8,6 +8,8 @@ import {NotificationService} from "./notification.service";
 export class ApiService {
     private apiUrl = 'http://localhost:8000/api/';
     private loginUrl = 'http://localhost:8000/auth/token/';
+    private userUrl = 'http://localhost:8000/auth/users/'; //
+
 
   constructor(private notificationService: NotificationService) {
   }
@@ -53,13 +55,19 @@ export class ApiService {
         }
     }
 
+    // Méthode de-'inscription
+
+  register(username: string, email: string, password: string) {
+    return axios.post(this.userUrl, { username, email, password });
+  }
+
     // Méthode d'authentification
     login(username: string, password: string): Promise<any> {
         return axios.post(`${this.loginUrl}login`, { username, password })
             .then(response => {
                 if (response.data.auth_token) {
                     localStorage.setItem('authToken', response.data.auth_token)
-                    //console.log('Token', response.data.auth_token);
+                    console.log('Token', response.data.auth_token);
                     this.notificationService.showMessage('success', 'Connexion réussie ! 🎉');
                     return response.data;
                 } else {
@@ -72,7 +80,28 @@ export class ApiService {
             });
     }
 
-    logout(): void {
+  async getUserInfo(): Promise<any> {
+    try {
+      const token = localStorage.getItem('authToken'); // Récupérer le token stocké
+      if (!token) {
+        throw new Error('Token non trouvé');
+      }
+
+      const response = await axios.get(this.userUrl +'me', {
+        headers: { Authorization: `Token ${token}` }
+      });
+
+      return response.data;
+    } catch (error) {
+      console.error('Erreur lors de la récupération des informations utilisateur', error);
+      return null;
+    }
+  }
+
+
+
+
+  logout(): void {
         localStorage.removeItem('authToken');
     }
 }

@@ -1,72 +1,93 @@
 /* Hero Section */
 .hero-section {
-  /*background: url('assets/hero-image.jpg') center/cover no-repeat;*/
-  color: #000000;
-  padding: 100px 0;
+  color: var(--dark-gray);
+  padding: 0px 0;
   text-align: center;
+  border-radius: 10px;
 }
 
 .hero-section h1 {
   font-size: 3rem;
   font-weight: bold;
+  color: var(--white-color);
 }
 
 .hero-section p {
   font-size: 1.2rem;
   margin: 20px 0;
+  color: var(--bs-light);
 }
 
 /* Catégories */
 .category-card {
   text-align: center;
   margin: 20px 0;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .category-card img {
   width: 70%;
-
   object-fit: cover;
   border-radius: 10px;
+  border: 3px solid var(--light-orange);
 }
 
 .category-card:hover {
   transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
-
 
 /* Produits */
 .product-card {
   text-align: center;
-  border: 1px solid #ddd;
+  border: 1px solid var(--gray-color);
   padding: 15px;
   border-radius: 10px;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .product-card img {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: scale-down;
   border-radius: 10px;
 }
 
 .product-card:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
 }
-
+.cart{
+margin-left: 10px;
+}
+/* Par défaut, pour mobile et petits écrans */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espacement entre les boutons */
+  margin-top: 15px; /* Espacement au-dessus des boutons */
+}
+/* Lien des catégories */
 .category-card a {
   text-decoration: none;
-  color: inherit; /* Optionnel : garde la couleur du texte */
+  color: inherit;
 }
 
 .category-card a h3 {
-
-  opacity: 0.7;
-
+  opacity: 0.8;
+  color: var(--primary-color);
 }
 
-.prix_euro{
-  color: #ff9900 !important;
-  font-size: small;
+@media screen and (max-width: 1211px) {
+  .btn-container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .btn-container {
+    flex-direction: row !important;
+  }
 }

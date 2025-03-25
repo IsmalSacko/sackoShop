@@ -1,0 +1,65 @@
+
+<!--<div class="container mt-5">
+<div class="user-profile-card" *ngIf="user">
+  <div class="avatar-container">
+    <img [src]="user.image" [src]="user.image"  alt="Avatar" class="avatar" />
+  </div>
+  <h2>
+    <i class="fa fa-user input-icon" aria-hidden="true"></i>
+    {{ user.first_name }} {{ user.last_name }}</h2>
+  <p><strong>
+    <i class="fa fa-envelope input-icon" aria-hidden="true"></i>
+  </strong> {{ user.email }}</p>
+  <p><strong>
+    <i class="fa fa-phone input-icon" aria-hidden="true"></i>
+  </strong> {{ user.phone }}</p>
+
+
+  <button class="btn edit-btn" (click)="editProfile()">Modifier les infos</button>
+
+</div>
+
+</div>-->
+<div class="container mt-5">
+  <div class="user-profile-card" *ngIf="user">
+    <!-- Avatar
+    <div class="avatar-container">
+      <img [src]="user.image" alt="Avatar" class="avatar" />
+    </div>
+    -->
+    <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+
+    <!-- Liste des options -->
+    <ul class="profile-options">
+      <li (click)="goToPage('/mes-commandes')">
+        <ion-icon class="ion-icon" name="cart-outline"></ion-icon>
+        <span>Mes commandes</span>
+        <span class="badge badge-primary">(3)</span>
+        <ion-icon class="ion-icon" name="chevron-forward" class="arrow-icon"></ion-icon>
+      </li>
+      <li (click)="goToPage('/historique')">
+        <ion-icon class="ion-icon" name="time-outline"></ion-icon>
+        <span>Historique</span>
+        <ion-icon name="chevron-forward" class="arrow-icon"></ion-icon>
+      </li>
+      <li (click)="goToPage('/adresse')">
+        <ion-icon class="ion-icon" name="location-outline"></ion-icon>
+        <span>Adresse</span>
+        <ion-icon class="ion-icon" name="chevron-forward" class="arrow-icon"></ion-icon>
+      </li>
+      <li (click)="goToPage('/centre-aide')">
+        <ion-icon class="ion-icon" name="help-circle-outline"></ion-icon>
+        <span>Centre d'aide</span>
+        <ion-icon name="chevron-forward" class="arrow-icon" id="ion-icon"></ion-icon>
+      </li>
+      <li (click)="goToPage('/politiques-retour')">
+        <ion-icon class="ion-icon" name="document-text-outline"></ion-icon>
+        <span>Politiques de retour</span>
+        <ion-icon name="chevron-forward" class="arrow-icon"></ion-icon>
+      </li>
+    </ul>
+  </div>
+<div class="container mt-2">
+  <button class="btn w-100" (click)="goToPage('/logout')">Déconnexion</button>
+</div>
+</div>

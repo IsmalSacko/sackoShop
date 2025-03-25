@@ -1,0 +1,32 @@
+<div class="container mt-5 centre-aide">
+  <p>Trouvez des réponses aux questions fréquentes ou contactez-nous.</p>
+
+  <ul class="help-options">
+    <li (click)="goToFAQ('retour-article')">
+      <ion-icon name="help-circle-outline"></ion-icon>
+      <span>Puis-je retourner un article ?</span>
+      <ion-icon name="chevron-forward" class="arrow-icon"></ion-icon>
+    </li>
+    <li (click)="goToFAQ('suivi-commande')">
+      <ion-icon name="time-outline"></ion-icon>
+      <span>Comment suivre ma commande ?</span>
+      <ion-icon name="chevron-forward" class="arrow-icon"></ion-icon>
+    </li>
+  </ul>
+
+  <h3>📞 Contactez-nous :</h3>
+  <ul class="contact-options">
+    <li>
+      <ion-icon name="mail-outline"></ion-icon>
+      <span>support&#64;sackoservices.com</span>
+    </li>
+    <li>
+      <ion-icon name="call-outline"></ion-icon>
+      <span>+223 73 13 13 67 89</span>
+    </li>
+  </ul>
+
+  <button class="btn" (click)="goToPage('/contact')">
+    Contacter le support
+  </button>
+</div>

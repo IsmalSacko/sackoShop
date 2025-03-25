@@ -1,0 +1,131 @@
+/* Appliquer un fond pour toute la page */
+.profile-edit-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Place le formulaire en haut plutôt qu'au centre */
+  min-height: auto; /* Supprime la hauteur forcée */
+  padding: 40px 20px; /* Ajoute du padding pour éviter que ce soit trop collé en haut */
+  background: var(--light-gray);
+}
+
+/* Conteneur principal du formulaire */
+.profile-edit-container {
+  width: 100%;
+  max-width: 420px; /* Ajustement pour un bon équilibre */
+  padding: 25px;
+  background: var(--white-color);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in-out;
+  margin-top: 50px; /* Ajoute un espace en haut */
+}
+
+/* Titre */
+.profile-edit-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--dark-gray);
+  margin-bottom: 20px;
+}
+
+/* Champs de formulaire */
+.input-group {
+  display: flex;
+  align-items: center;
+  background: var(--light-gray);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.input-group:focus-within {
+  background: var(--white-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Icône dans les champs */
+.input-icon {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-right: 10px;
+}
+
+/* Champs de saisie */
+.profile-edit-form input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--dark-gray);
+  outline: none;
+  padding: 8px;
+}
+
+/* Boutons */
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Espace entre les boutons */
+  margin-top: 20px;
+}
+
+.save-btn, .cancel-btn {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+/* Bouton enregistrer */
+.save-btn {
+  background: linear-gradient(120deg, var(--primary-color), var(--light-orange));
+  color: var(--white-color);
+}
+
+.save-btn:hover {
+  background: linear-gradient(120deg, var(--dark-orange), var(--primary-color));
+  transform: scale(1.05);
+}
+
+/* Bouton annuler */
+.cancel-btn {
+  background: var(--gray-color);
+  color: var(--dark-gray);
+}
+
+.cancel-btn:hover {
+  background: var(--light-gray);
+}
+
+/* Responsive : Ajustements mobiles */
+@media (max-width: 480px) {
+  .profile-edit-container {
+    max-width: 95%;
+    padding: 20px;
+    margin-top: 30px; /* Réduit l’espace en haut pour les petits écrans */
+  }
+
+  .profile-edit-title {
+
+    font-size: 1rem;
+    margin-bottom: 1px;
+    color: var(--white-color);
+  }
+
+  .input-group {
+    padding: 8px;
+  }
+
+  .save-btn, .cancel-btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+

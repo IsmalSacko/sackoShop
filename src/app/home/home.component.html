@@ -2,7 +2,7 @@
 <div class="hero-section">
   <div class="container text-center">
     <h1>Bienvenue sur Sacko Services</h1>
-    <p>Votre boutique de téléphones et accessoires au Mali</p>
+    <p class="text-light">Votre boutique de téléphones et accessoires au Mali</p>
     <a routerLink="/home" class="btn btn-primary">Voir la boutique</a>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div class="container mt-5">
   <h2 class="text-center">Nos Catégories</h2>
   <div class="row">
-    <div *ngFor="let category of categories" class="col-md-4">
+    <div *ngFor="let category of categories" class="col-lg-4 col-md-6 col-sm-12 mb-4">
       <div class="category-card">
         <a [routerLink]="['/category', category.id]">
           <h3>{{ category.title }}</h3>
@@ -23,17 +23,25 @@
 </div>
 
 <!-- Produits en vedette -->
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <h2 class="text-center">Produits en vedette</h2>
   <div class="row">
-    <div *ngFor="let product of featuredProducts" class="col-md-3">
+    <div *ngFor="let product of featuredProducts" class="col-lg-3 col-md-4 col-sm-6 mb-4">
       <div class="product-card">
         <img [src]="product.imageUrls[0]" alt="{{ product.title }}" />
         <h3>{{ product.title }}</h3>
         <p>{{ (product.price * 655.96) | number:'1.0-0' }} F CFA</p>
-
         <p class="prix_euro">{{ product.price }} <i class="fa fa-eur" aria-hidden="true"></i></p>
-        <button class="btn btn-outline-primary">Détails</button>
+        <div class="btn-container">
+          <div class="details">
+            <button class="btn btn-secondary">Détails</button>
+          </div>
+          <div class="cart">
+            <button class="btn btn-primary" (click)="addToCart(product.id)">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>+
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

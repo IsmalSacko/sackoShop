@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ApiService} from '../services/api.service';
-import {DecimalPipe, NgForOf, Location} from '@angular/common';
+import {DecimalPipe, Location, NgForOf} from '@angular/common';
+import {CartService} from '../services/cart.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-category-list-products',
@@ -12,11 +14,18 @@ import {DecimalPipe, NgForOf, Location} from '@angular/common';
   templateUrl: './category-list-products.component.html',
   styleUrl: './category-list-products.component.css'
 })
-export class CategoryListProductsComponent  implements OnInit {
+export class CategoryListProductsComponent implements OnInit {
   categoryId!: number;
   products: any[] = [];
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService,private location: Location) {}
+  constructor(
+    private route: ActivatedRoute,
+    private apiService: ApiService,
+    private cartService: CartService,
+    private toastr: ToastrService,
+    private router: Router,
+    private location: Location) {
+  }
 
   async ngOnInit() {
     this.categoryId = Number(this.route.snapshot.paramMap.get('id'));
@@ -27,4 +36,8 @@ export class CategoryListProductsComponent  implements OnInit {
     this.location.back();
   }
 
+  addToCart(productId: number) {
+    this.cartService.addToCart(productId, 1);
+
+  }
 }

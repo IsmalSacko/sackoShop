@@ -1,0 +1,43 @@
+<ion-header class="top-bar">
+  <ion-toolbar>
+
+<!--    &lt;!&ndash; Bouton Retour &ndash;&gt;-->
+<!--    <ion-buttons slot="start">-->
+<!--    <ion-button (click)="goToBack()">-->
+<!--      <ion-icon name="arrow-back-outline"></ion-icon>-->
+<!--    </ion-button>-->
+<!--  </ion-buttons>-->
+    <ion-buttons slot="start">
+      <ion-icon name="chevron-back" class="back-icon" (click)="goToBack()"></ion-icon>
+    </ion-buttons>
+
+    <!--
+        &lt;!&ndash; Logo Centré &ndash;&gt;
+        <ion-title class="logo">
+          <img src="/assets/logo/logo.png" alt="Sacko Services">
+        </ion-title>-->
+
+    <!-- Boutons de droite --><!--
+    <ion-buttons slot="end" >
+      <ion-button (click)="openProfile()">
+        <ion-icon class="user-icon" name="person-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>-->
+    <ion-buttons slot="end">
+      <ion-button (click)="openProfile()">
+        <ion-label class="user-label p-2">
+          {{ user?.first_name }} {{ user?.last_name }}
+        </ion-label>
+        <img *ngIf="user?.image" [src]="user.image" alt="Avatar" class="avatar" />
+        <ion-icon *ngIf="!user?.image" class="user-icon" name="person-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+
+  <!-- Barre de recherche avec espacement -->
+  <div class="search-container">
+    <ion-searchbar placeholder="Rechercher un téléphone..." mode="ios"></ion-searchbar>
+  </div>
+</ion-header>

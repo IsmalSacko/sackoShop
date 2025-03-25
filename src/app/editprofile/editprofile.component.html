@@ -1,0 +1,56 @@
+<div class="container mt-2">
+
+  <form (ngSubmit)="updateProfile()" class="profile-edit-form">
+    <h2 class="profile-edit-title">Modifier mes informations</h2>
+
+    <!-- Nom -->
+    <div class="input-group">
+      <i class="fa fa-user input-icon"></i>
+      <input type="text" [(ngModel)]="user.last_name" name="last_name" placeholder="Nom" required />
+    </div>
+
+    <!-- Prénom -->
+    <div class="input-group">
+      <i class="fa fa-user input-icon"></i>
+      <input type="text" [(ngModel)]="user.first_name" name="first_name" placeholder="Prénom" required />
+    </div>
+
+    <!-- Nom d'utilisateur -->
+    <div class="input-group">
+      <i class="fa fa-user-circle input-icon"></i>
+      <input type="text" [(ngModel)]="user.username" name="username" placeholder="Nom d'utilisateur" required />
+    </div>
+
+    <!-- Email -->
+    <div class="input-group">
+      <i class="fa fa-envelope input-icon"></i>
+      <input type="email" [(ngModel)]="user.email" name="email" placeholder="Email" required />
+    </div>
+
+    <!-- Téléphone -->
+    <div class="input-group">
+      <i class="fa fa-phone input-icon"></i>
+      <input type="tel" [(ngModel)]="user.phone" name="phone" placeholder="Téléphone" />
+    </div>
+
+    <!-- Adresse -->
+    <div class="input-group">
+      <i class="fa fa-map-marker input-icon"></i>
+      <input type="text" [(ngModel)]="user.address" name="address" placeholder="Adresse" />
+    </div>
+
+    <!-- Image de profil -->
+    <div class="input-group">
+      <i class="fa fa-image input-icon"></i>
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+    </div>
+
+    <!-- Bouton de sauvegarde -->
+  <div class="container">
+    <button type="submit" class="btn save-btn w-100">
+      <i class="fa fa-save"></i> Enregistrer
+    </button>
+  </div>
+  </form>
+
+</div>

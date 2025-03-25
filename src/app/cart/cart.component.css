@@ -1,0 +1,151 @@
+/* Conteneur principal du panier */
+.container {
+  padding: 10px !important;
+  background: #f9f9f9 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Titre */
+.cart-container h1 {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+/* Liste des articles */
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Article du panier */
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 8px;
+  padding: 2px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s ease-in-out;
+}
+.remove-button{
+ color: red;
+}
+.cart-item:hover {
+  transform: scale(1.02);
+}
+
+/* Image produit */
+.product-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+/* Détails du produit */
+.product-details {
+  flex-grow: 2; /* Élargit la zone de texte */
+  padding-left: 15px;
+}
+
+.product-details h3 {
+  font-size: 16px;
+  margin: 0;
+  color: #333;
+}
+
+.product-price {
+  font-size: 14px;
+  font-weight: bold;
+  color: #007bff;
+  margin-top: 5px;
+}
+
+/* Regroupe les boutons quantité + Supprimer */
+.cart-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Contrôles de quantité */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity {
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Bouton supprimer */
+ion-button[color="danger"] {
+  margin-left: 10px;
+}
+
+/* Pied du panier */
+.cart-footer {
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.cart-footer h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+/* Message panier vide */
+.empty-message {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #888;
+  margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  .cart-item {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .product-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .product-details {
+    flex-grow: 1;
+    padding-left: 10px;
+  }
+
+  .cart-actions {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  ion-button[color="danger"] {
+    margin-left: 0;
+  }
+}
