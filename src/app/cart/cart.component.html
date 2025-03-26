@@ -1,35 +1,45 @@
-<div class="container cart-container mt-5 mb-5">
+<div class="container cart-container mt-4 mb-2">
   <h1 class="text-center">🛒 Mon Panier</h1>
 
   <div *ngIf="cartItems.length > 0; else emptyCart">
     <div class="cart-items">
+      <div class="user_et_cart d-flex">
+        <div *ngFor="let item of cartItems" class="cart-item">
 
-      <div *ngFor="let item of cartItems" class="cart-item">
+          <div class="product-details">
+            <h3>{{ item.product.title }}</h3>
+            <p class="product-price">{{ item.product.price | number:'1.2-2' }} €</p>
 
-        <div class="product-details">
-          <h3>{{ item.product.title }}</h3>
-          <p class="product-price">{{ item.product.price | number:'1.2-2' }} €</p>
+            <div class="quantity-controls">
+              <img *ngIf="item.product.imageUrls?.length" [src]="item.product.imageUrls[0]"
+                   alt="{{ item.product.title }}"
+                   class="product-image"/>
+              <ion-button (click)="decreaseQuantity(item)" color="primary" fill="outline">➖</ion-button>
+              <span class="quantity">{{ item.quantity }}</span>
+              <ion-button (click)="increaseQuantity(item)" color="primary" fill="outline">➕</ion-button>
+              <ion-button (click)="removeItem(item.id)" color="danger" fill="outline">
+                <ion-icon class="remove-button" name="trash-outline"></ion-icon>
+              </ion-button>
+            </div>
 
-          <div class="quantity-controls">
-            <img *ngIf="item.product.imageUrls?.length" [src]="item.product.imageUrls[0]" alt="{{ item.product.title }}" class="product-image" />
-            <ion-button fill="outline" color="primary" (click)="decreaseQuantity(item)">➖</ion-button>
-            <span class="quantity">{{ item.quantity }}</span>
-            <ion-button fill="outline" color="primary" (click)="increaseQuantity(item)">➕</ion-button>
-          <ion-button fill="outline" color="danger"  (click)="removeItem(item.id)">
-            <ion-icon class="remove-button"  name="trash-outline"></ion-icon>
-          </ion-button>
           </div>
 
         </div>
+        <div *ngIf="customer" class="payment-info">
+          <h3 class="warning">Informations Client</h3>
+          <p><strong>Nom :</strong> {{ customer.first_name }} {{ customer.last_name }}</p>
+          <p><strong>Email :</strong> {{ customer.email }}</p>
+          <p><strong>Téléphone :</strong> {{ customer.phone }}</p>
+          <p><strong>Adresse :</strong> {{ customer.address }}</p>
+        </div>
       </div>
     </div>
-
     <div class="cart-footer">
-      <h3>Total: {{ totalPrice | number:'1.2-2' }} €</h3>
-        <button class="btn btn-primary w-100" (click)="checkout()">
-          Payer
-          ✅
-        </button>
+      <h3>Total: {{ totalPrice | number:'1.2-2' }} FCFA</h3>
+      <button (click)="checkout()" class="btn btn-primary w-50">
+        Payer
+        <ion-icon class="money" name="cash-outline"></ion-icon>
+      </button>
     </div>
   </div>
 

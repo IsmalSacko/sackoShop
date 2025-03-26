@@ -32,9 +32,11 @@
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.1s ease-in-out;
 }
-.remove-button{
- color: red;
+
+.remove-button {
+  color: red;
 }
+
 .cart-item:hover {
   transform: scale(1.02);
 }
@@ -74,6 +76,17 @@
   gap: 15px;
 }
 
+.user_et_cart {
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 8px;
+  padding: 2px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s ease-in-out;
+  gap: 10px;
+}
+
 /* Contrôles de quantité */
 .quantity-controls {
   display: flex;
@@ -92,10 +105,16 @@ ion-button[color="danger"] {
   margin-left: 10px;
 }
 
+.money, .btn-primary {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--green-light) !important;
+}
+
 /* Pied du panier */
 .cart-footer {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 8px;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -128,9 +147,23 @@ ion-button[color="danger"] {
     padding: 10px;
   }
 
+  /* Pied du panier */
+  .cart-footer {
+    text-align: center;
+    margin-top: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
   .product-image {
     width: 60px;
     height: 60px;
+  }
+
+  .user_et_cart {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .product-details {

@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 import {ProductsComponent} from './products/products.component';
 import {HomeComponent} from './home/home.component';
 import {CategoryListProductsComponent} from './category-list-products/category-list-products.component';
@@ -11,15 +11,15 @@ import {CartComponent} from './cart/cart.component';
 
 export const routes: Routes = [
   //{ path: 'home', component: HomeComponent },
-  { path: '', component: HomeComponent},
-  { path: 'products', component: ProductsComponent},
-  { path: 'category/:id', component:CategoryListProductsComponent},
-  { path: 'login', component:LoginComponent},
-  { path: 'register', component: RegisterComponent},
-  { path: 'profile', component: UserProfileComponent},
-  { path: 'profile/edit', component: EditprofileComponent },
-  { path: 'centre-aide', component: HelpCenterComponent},
-  { path: 'cart', component: CartComponent}
+  {path: 'home', component: HomeComponent},
+  {path: 'products', component: ProductsComponent},
+  {path: 'category/:id', component: CategoryListProductsComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'profile', component: UserProfileComponent},
+  {path: '', component: EditprofileComponent},
+  {path: 'centre-aide', component: HelpCenterComponent},
+  {path: 'cart', component: CartComponent}
   //{ path: 'products', component: ProductsComponent }
 
 ];
