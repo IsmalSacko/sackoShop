@@ -1,4 +1,4 @@
-<div class="container cart-container mt-4 mb-2">
+<div class="container cart-container mt-4 mb-5">
   <h1 class="text-center">🛒 Mon Panier</h1>
 
   <div *ngIf="cartItems.length > 0; else emptyCart">
@@ -34,9 +34,9 @@
         </div>
       </div>
     </div>
-    <div class="cart-footer">
+    <div class="cart-footer d-flex justify-content-between ">
       <h3>Total: {{ totalPrice | number:'1.2-2' }} FCFA</h3>
-      <button (click)="checkout()" class="btn btn-primary w-50">
+      <button (click)="checkout()" class="btn btn-primary w-50 mb-5">
         Payer
         <ion-icon class="money" name="cash-outline"></ion-icon>
       </button>

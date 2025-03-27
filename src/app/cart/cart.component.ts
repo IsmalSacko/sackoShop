@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {IonicModule} from '@ionic/angular';
 import {DecimalPipe, NgForOf, NgIf} from '@angular/common';
 import {CartService} from '../services/cart.service';
@@ -35,7 +35,8 @@ export class CartComponent implements OnInit {
   constructor(
     private apiService: CartService,
     private cinetpayService: CinetpayService,
-    private userService: ApiService
+    private userService: ApiService,
+    private cdr: ChangeDetectorRef,
   ) {
   }
 
@@ -81,6 +82,7 @@ export class CartComponent implements OnInit {
     item.quantity++;
     await this.apiService.updateCartItem(item.id, item.quantity);
     this.updateTotalPrice();
+    this.pageReload()
   }
 
   async decreaseQuantity(item: CartItem) {
@@ -88,7 +90,17 @@ export class CartComponent implements OnInit {
       item.quantity--;
       await this.apiService.updateCartItem(item.id, item.quantity);
       this.updateTotalPrice();
+      this.pageReload()
+
     }
+  }
+
+  // Méthode pour recharger la page après une action
+
+  pageReload(): void {
+    setTimeout(() => {
+      window.location.reload();
+    }, 0);
   }
 
   async removeItem(itemId: number) {
@@ -96,6 +108,11 @@ export class CartComponent implements OnInit {
     if (success) {
       this.cartItems = this.cartItems.filter(item => item.id !== itemId);
       this.updateTotalPrice();
+      setTimeout(() => {
+        // Rafraîchir la vue sans recharger la page
+        this.cdr.detectChanges();  // Force la détection des changements dans la vue
+        console.log('Contenu mis à jour!');
+      }, 0);
     }
   }
 
@@ -129,8 +146,6 @@ export class CartComponent implements OnInit {
       const transactionId = Math.floor(Math.random() * 100000000).toString();
       // Conversion en XOF et arrondi à l'entier le plus proche
       const customerCountry = (this.customer.country || 'ML').toUpperCase();
-      const amountInCFA = Math.round(this.totalPrice * 655.96);
-      console.log("Montant en XOF :", amountInCFA);
       //const amountInCFA = this.totalPrice * 655; // Conversion en XOF
       (window as any).CinetPay.getCheckout({
         transaction_id: transactionId, // ID de la transaction

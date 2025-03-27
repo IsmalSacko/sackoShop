@@ -1,14 +1,15 @@
 <ion-header class="top-bar">
   <ion-toolbar>
 
-<!--    &lt;!&ndash; Bouton Retour &ndash;&gt;-->
-<!--    <ion-buttons slot="start">-->
-<!--    <ion-button (click)="goToBack()">-->
-<!--      <ion-icon name="arrow-back-outline"></ion-icon>-->
-<!--    </ion-button>-->
-<!--  </ion-buttons>-->
+    <!--    &lt;!&ndash; Bouton Retour &ndash;&gt;-->
+    <!--    <ion-buttons slot="start">-->
+    <!--    <ion-button (click)="goToBack()">-->
+    <!--      <ion-icon name="arrow-back-outline"></ion-icon>-->
+    <!--    </ion-button>-->
+    <!--  </ion-buttons>-->
     <ion-buttons slot="start">
-      <ion-icon name="chevron-back" class="back-icon" (click)="goToBack()"></ion-icon>
+      <i (click)="goToBack()" aria-hidden="true" class="fa fa-chevron-left back-icon"></i>
+      <!--      <ion-icon (click)="goToBack()" class="back-icon" name="chevron-back"></ion-icon>-->
     </ion-buttons>
 
     <!--
@@ -28,7 +29,7 @@
         <ion-label class="user-label p-2">
           {{ user?.first_name }} {{ user?.last_name }}
         </ion-label>
-        <img *ngIf="user?.image" [src]="user.image" alt="Avatar" class="avatar" />
+        <img *ngIf="user?.image" [src]="user.image" alt="Avatar" class="avatar"/>
         <ion-icon *ngIf="!user?.image" class="user-icon" name="person-circle-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -38,6 +39,6 @@
 
   <!-- Barre de recherche avec espacement -->
   <div class="search-container">
-    <ion-searchbar placeholder="Rechercher un téléphone..." mode="ios"></ion-searchbar>
+    <ion-searchbar mode="ios" placeholder="Rechercher un téléphone..."></ion-searchbar>
   </div>
 </ion-header>

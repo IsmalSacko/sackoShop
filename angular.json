@@ -32,7 +32,6 @@
               "src/styles.css"
             ],
             "scripts": [
-              "https://cdn.cinetpay.com/seamless/main.js"
             ]
           },
           "configurations": {
@@ -91,9 +90,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              "https://cdn.cinetpay.com/seamless/main.js"
-            ]
+            "scripts": []
           }
         }
       }

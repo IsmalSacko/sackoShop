@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {CartService} from '../services/cart.service';
 import {NgIf} from '@angular/common';
 
@@ -18,7 +18,7 @@ export class BottomBarComponent implements OnInit {
   cartItems: any[] = [];
   isCartOpen: boolean = false;
 
-  constructor(private apiService: CartService) {
+  constructor(private apiService: CartService, private router: Router,) {
   }
 
   async ngOnInit() {
@@ -27,8 +27,6 @@ export class BottomBarComponent implements OnInit {
         this.isCartOpen = isOpen;
 
       });
-
-
       const data = await this.apiService.getCartItems();
 
       if (data.cart && data.cart.cart_items) {
@@ -39,13 +37,28 @@ export class BottomBarComponent implements OnInit {
     }
   }
 
-  // Fonction pour gérer l'état ouvert/fermé du panier
   toggleCart() {
-    this.isCartOpen = !this.isCartOpen;
+    if (this.activeTab === 'cart') {
+      // Si le panier est déjà actif, ne rien faire
+      return;
+    }
+
+    this.isCartOpen = !this.isCartOpen; // Ouvre ou ferme le panier
     this.apiService.setCartOpenState(this.isCartOpen);
+    this.setActiveTab('cart'); // Change l'onglet actif en "panier"
   }
+
 
   setActiveTab(tab: string) {
     this.activeTab = tab;
+    this.router.navigate([`/${tab}`]);
+
+
+  }
+
+  pageReload(): void {
+    setTimeout(() => {
+      window.location.reload();
+    }, 0);
   }
 }

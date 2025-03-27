@@ -1,0 +1,15 @@
+<div class="container mt-4 ">
+  <h2>Mes Commandes</h2>
+  <div *ngIf="commandes.length; else noOrders">
+    <ul class="order-list">
+      <li *ngFor="let commande of commandes" class="order-item">
+        <span>Commande #{{ commande.id }} - {{ commande.date }}</span>
+        <span class="status {{ commande.statut.toLowerCase() }}">{{ commande.statut }}</span>
+        <span class="total">Total : {{ commande.total }}</span>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noOrders>
+    <p>Aucune commande passée.</p>
+  </ng-template>
+</div>

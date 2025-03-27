@@ -1,7 +1,24 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import axios from 'axios';
-import { ToastrService } from 'ngx-toastr';
+import {ToastrService} from 'ngx-toastr';
+import {Keyboard} from '@capacitor/keyboard';
+
+Keyboard.addListener('keyboardWillShow', info => {
+  console.log('keyboard will show with height:', info.keyboardHeight);
+});
+
+Keyboard.addListener('keyboardDidShow', info => {
+  console.log('keyboard did show with height:', info.keyboardHeight);
+});
+
+Keyboard.addListener('keyboardWillHide', () => {
+  console.log('keyboard will hide');
+});
+
+Keyboard.addListener('keyboardDidHide', () => {
+  console.log('keyboard did hide');
+});
 
 @Component({
   selector: 'app-editprofile',
@@ -20,7 +37,18 @@ export class EditprofileComponent {
     image: null
   };
 
-  constructor(private toastr: ToastrService) {}
+  constructor(private toastr: ToastrService) {
+  }
+
+  // Fonction pour ouvrir le clavier
+  async openKeyboard() {
+    await Keyboard.show();
+  }
+
+  // Fonction pour fermer le clavier
+  async closeKeyboard() {
+    await Keyboard.hide();
+  }
 
   ngOnInit() {
     this.getUserInfo();
@@ -51,7 +79,7 @@ export class EditprofileComponent {
       }
 
       const response = await axios.get('http://127.0.0.1:8000/auth/users/me/', {
-        headers: { Authorization: `Token ${token}` }
+        headers: {Authorization: `Token ${token}`}
       });
 
       this.user = response.data;
@@ -101,7 +129,7 @@ export class EditprofileComponent {
         positionClass: 'toast-center-center',
         timeOut: 5000,
         progressBar: true,
-        closeButton: true
+        closeButton: false
       });
 
     } catch (error) {
@@ -114,7 +142,7 @@ export class EditprofileComponent {
         positionClass: 'toast-center-center',
         timeOut: 5000,
         progressBar: true,
-        closeButton: true
+        closeButton: false
       });
     }
   }

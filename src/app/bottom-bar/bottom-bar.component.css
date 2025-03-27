@@ -54,7 +54,7 @@
   }
 }
 
-.cart-badge{
+.cart-badge {
   position: absolute;
   top: -3px;
   left: 50%;
@@ -68,11 +68,11 @@
 /* 📱 Responsive */
 @media screen and (max-width: 768px) {
   .bottom-bar {
-    padding: 6px 4px; /* Réduit encore pour mobile */
+    padding: 14px 12px; /* Réduit encore pour mobile */
   }
 
   .bottom-bar a {
-    font-size: 10px; /* Réduit davantage pour mobile */
+    font-size: 12px; /* Réduit davantage pour mobile */
   }
 
   .bottom-bar a i {

@@ -1,0 +1,32 @@
+<div class="container mb-5 mt-3">
+  <h2>Paramètres</h2>
+
+  <div class="settings-section">
+    <div class="settings-item">
+      <h3>Profil</h3>
+      <p>Gérez vos informations personnelles.</p>
+      <button (click)="goToProfile('/edite-profile')">Modifier le profil</button>
+    </div>
+
+    <div class="settings-item">
+      <h3>Notifications</h3>
+      <p>Recevez des notifications sur les nouvelles offres, mises à jour de commande, etc.</p>
+      <label>
+        <input [(ngModel)]="notificationsEnabled" type="checkbox"/> Activer les notifications
+      </label>
+    </div>
+
+    <div class="settings-item">
+      <h3>Changement de mot de passe</h3>
+      <p>Modifiez votre mot de passe pour sécuriser votre compte.</p>
+      <button (click)="changePassword('/change-password')">Modifier le mot de passe</button>
+    </div>
+
+    <div class="settings-item">
+      <h3>Déconnexion</h3>
+      <p>Si vous souhaitez vous déconnecter, vous pouvez le faire ici.</p>
+      <button (click)="logout()">Se déconnecter</button>
+    </div>
+  </div>
+</div>
+

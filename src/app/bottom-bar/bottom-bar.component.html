@@ -1,28 +1,28 @@
 <nav class="bottom-bar">
-  <a routerLink="/" (click)="setActiveTab('home')" [class.active]="activeTab === 'home'">
+  <a (click)="setActiveTab('home')" [class.active]="activeTab === 'home'" routerLink="/">
     <i class="fa fa-home"></i>
     <span>Accueil</span>
   </a>
 
-  <a routerLink="/products" (click)="setActiveTab('products')" [class.active]="activeTab === 'products'">
+  <a (click)="setActiveTab('products')" [class.active]="activeTab === 'products'" routerLink="/products">
     <i class="fa fa-mobile"></i>
     <span>Produits</span>
   </a>
-  <a routerLink="/cart" (click)="toggleCart()" [class.active]="activeTab === 'cart'" class="cart-link position-relative">
-    <span *ngIf="!isCartOpen &&cartItems.length > 0" class="badge text-bg-danger cart-badge">{{ cartItems.length }}</span>
+  <a (click)="toggleCart()" [class.active]="activeTab === 'cart'" class="cart-link position-relative"
+     routerLink="/cart">
+    <span *ngIf="!isCartOpen &&cartItems.length > 0"
+          class="badge text-bg-danger cart-badge">{{ cartItems.length }}</span>
     <i class="fa fa-shopping-cart fa-lg"></i>
     <span>Panier</span>
   </a>
 
 
-
-
-  <a routerLink="/profile" (click)="setActiveTab('profile')" [class.active]="activeTab === 'profile'">
+  <a (click)="setActiveTab('profile')" [class.active]="activeTab === 'profile'" routerLink="/profil">
     <i class="fa fa-user"></i>
     <span>Profil</span>
   </a>
 
-  <a routerLink="/settings" (click)="setActiveTab('settings')" [class.active]="activeTab === 'settings'">
+  <a (click)="setActiveTab('settings')" [class.active]="activeTab === 'settings'" routerLink="/settings">
     <i class="fa fa-cog"></i>
     <span>Paramètres</span>
   </a>

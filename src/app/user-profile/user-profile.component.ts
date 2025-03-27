@@ -10,21 +10,23 @@ import {HelpCenterComponent} from '../help-center/help-center.component';
   selector: 'app-user-profile',
   imports: [
     NgIf,
-    IonicModule,
+    IonicModule
 
 
   ],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.css'
 })
-export class UserProfileComponent implements OnInit{
+export class UserProfileComponent implements OnInit {
   user: any = null;
 
-  constructor(private modalCtrl : ModalController ,private userService: ApiService, private router: Router) {}
+  constructor(private modalCtrl: ModalController, private userService: ApiService, private router: Router) {
+  }
 
   async ngOnInit() {
     this.user = await this.userService.getUserInfo();
   }
+
   async openHelpCenter() {
     console.log("🔹 Ouverture du modal Centre d'aide"); // ✅ Vérification en console
 
@@ -34,9 +36,11 @@ export class UserProfileComponent implements OnInit{
 
     await modal.present();
   }
+
   goToPage(route: string) {
     this.router.navigate([route]);
   }
+
   editProfile() {
     this.router.navigate(['/profile/edit']);
   }

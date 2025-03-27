@@ -47,7 +47,7 @@ export class CartService {
           positionClass: 'toast-center-center',
           timeOut: 5000,
           progressBar: true,
-          closeButton: true
+          closeButton: false
         });
         setTimeout(() => {
 
@@ -66,7 +66,7 @@ export class CartService {
         positionClass: 'toast-center-center',
         timeOut: 5000,
         progressBar: true,
-        closeButton: true
+        closeButton: false
       });
       return null;
     }
