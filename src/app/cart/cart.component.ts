@@ -4,6 +4,8 @@ import {DecimalPipe, NgForOf, NgIf} from '@angular/common';
 import {CartService} from '../services/cart.service';
 import {CinetpayService} from '../services/cinetpay.service';
 import {ApiService} from '../services/api.service';
+import {addIcons} from 'ionicons';
+import {heart, trashOutline, reload} from 'ionicons/icons';
 
 interface CartItem {
   id: number;
@@ -31,6 +33,12 @@ export class CartComponent implements OnInit {
   cartItems: CartItem[] = [];
   totalPrice: number = 0;
   customer: any = null; // Stocker les infos de l'utilisateur
+  /*  pageReload(): void {
+      setTimeout(() => {
+        window.location.reload();
+      }, 0);
+    }*/
+  isReloading = false;  // Variable pour afficher ou non l'icône
 
   constructor(
     private apiService: CartService,
@@ -38,6 +46,11 @@ export class CartComponent implements OnInit {
     private userService: ApiService,
     private cdr: ChangeDetectorRef,
   ) {
+    addIcons({
+      trashOutline,
+      reload,
+
+    })
   }
 
   async ngOnInit() {
@@ -85,6 +98,8 @@ export class CartComponent implements OnInit {
     this.pageReload()
   }
 
+  // Méthode pour recharger la page après une action
+
   async decreaseQuantity(item: CartItem) {
     if (item.quantity > 1) {
       item.quantity--;
@@ -95,12 +110,11 @@ export class CartComponent implements OnInit {
     }
   }
 
-  // Méthode pour recharger la page après une action
-
   pageReload(): void {
+    this.isReloading = true;  // Afficher l'icône de rechargement
     setTimeout(() => {
       window.location.reload();
-    }, 0);
+    }, 800);  // Petit délai pour que l'icône s'affiche avant le rechargement
   }
 
   async removeItem(itemId: number) {
@@ -108,11 +122,7 @@ export class CartComponent implements OnInit {
     if (success) {
       this.cartItems = this.cartItems.filter(item => item.id !== itemId);
       this.updateTotalPrice();
-      setTimeout(() => {
-        // Rafraîchir la vue sans recharger la page
-        this.cdr.detectChanges();  // Force la détection des changements dans la vue
-        console.log('Contenu mis à jour!');
-      }, 0);
+      this.pageReload()
     }
   }
 

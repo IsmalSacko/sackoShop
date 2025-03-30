@@ -17,7 +17,7 @@ import {PasswordResetConfirmComponent} from './auth/password-reset-confirm/passw
 
 export const routes: Routes = [
   //{ path: 'home', component: HomeComponent },
-  {path: 'home', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'category/:id', component: CategoryListProductsComponent},
   {path: 'login', component: LoginComponent},

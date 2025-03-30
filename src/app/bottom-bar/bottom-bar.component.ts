@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
 import {CartService} from '../services/cart.service';
 import {NgIf} from '@angular/common';
+import {IonicModule} from '@ionic/angular';
 
 @Component({
   selector: 'app-bottom-bar',
@@ -9,12 +10,13 @@ import {NgIf} from '@angular/common';
   templateUrl: './bottom-bar.component.html',
   imports: [
     RouterLink,
-    NgIf
+    NgIf,
+    IonicModule
   ],
   styleUrls: ['./bottom-bar.component.css']
 })
 export class BottomBarComponent implements OnInit {
-  activeTab: string = 'home';
+  activeTab: string = '/';
   cartItems: any[] = [];
   isCartOpen: boolean = false;
 

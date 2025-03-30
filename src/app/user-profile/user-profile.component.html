@@ -1,63 +1,38 @@
-<!--<div class="container mt-5">
-<div class="user-profile-card" *ngIf="user">
-  <div class="avatar-container">
-    <img [src]="user.image" [src]="user.image"  alt="Avatar" class="avatar" />
-  </div>
-  <h2>
-    <i class="fa fa-user input-icon" aria-hidden="true"></i>
-    {{ user.first_name }} {{ user.last_name }}</h2>
-  <p><strong>
-    <i class="fa fa-envelope input-icon" aria-hidden="true"></i>
-  </strong> {{ user.email }}</p>
-  <p><strong>
-    <i class="fa fa-phone input-icon" aria-hidden="true"></i>
-  </strong> {{ user.phone }}</p>
-
-
-  <button class="btn edit-btn" (click)="editProfile()">Modifier les infos</button>
-
-</div>
-
-</div>-->
 <div class="container mt-5">
   <div *ngIf="user" class="user-profile-card">
-    <!-- Avatar
-    <div class="avatar-container">
-      <img [src]="user.image" alt="Avatar" class="avatar" />
-    </div>
-    -->
     <h2>{{ user.first_name }} {{ user.last_name }}</h2>
 
-    <!-- Liste des options --><!-- Liste des options -->
+    <!-- Liste des options -->
     <ul class="profile-options">
       <li (click)="goToPage('/mes-commandes')">
-        <i class="fa fa-shopping-cart ion-icon"></i>
+        <ion-icon class="ion-icon" name="cart"></ion-icon>  <!-- Panier -->
         <span>Mes commandes</span>
         <span class="badge badge-primary">(3)</span>
-        <i class="fa fa-chevron-right ion-icon arrow-icon"></i>
+        <ion-icon class="arrow-icon" name="chevron-forward" slot="end"></ion-icon>
       </li>
       <li (click)="goToPage('/historique')">
-        <i class="fa fa-history ion-icon"></i>
+        <ion-icon class="ion-icon" name="time"></ion-icon>  <!-- Historique -->
         <span>Historique</span>
-        <i class="fa fa-chevron-right ion-icon arrow-icon"></i>
+        <ion-icon class="arrow-icon" name="chevron-forward" slot="end"></ion-icon>
       </li>
       <li (click)="goToPage('/adresse')">
-        <i class="fa fa-map-marker ion-icon"></i>
+        <ion-icon class="ion-icon" name="location"></ion-icon>  <!-- Adresse -->
         <span>Adresse</span>
-        <i class="fa fa-chevron-right ion-icon arrow-icon"></i>
+        <ion-icon class="arrow-icon" name="chevron-forward" slot="end"></ion-icon>
       </li>
       <li (click)="goToPage('/centre-aide')">
-        <i aria-hidden="true" class="fa fa-headphones ion-icon"></i>
+        <ion-icon class="ion-icon" name="headset"></ion-icon>  <!-- Centre d'aide -->
         <span>Centre d'aide</span>
-        <i class="fa fa-chevron-right ion-icon arrow-icon"></i>
+        <ion-icon class="arrow-icon" name="chevron-forward" slot="end"></ion-icon>
       </li>
       <li (click)="goToPage('/politiques-retour')">
-        <i class="fa fa-file-text ion-icon"></i>
+        <ion-icon class="ion-icon" name="shield-checkmark-sharp"></ion-icon>  <!-- Politiques de retour -->
         <span>Politiques de retour</span>
-        <i class="fa fa-chevron-right ion-icon arrow-icon"></i>
+        <ion-icon class="arrow-icon" name="chevron-forward" slot="end"></ion-icon>
       </li>
     </ul>
   </div>
+
   <div class="container mt-2">
     <button (click)="goToPage('/logout')" class="btn w-100">Déconnexion</button>
   </div>

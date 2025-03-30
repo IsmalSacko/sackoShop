@@ -1,5 +1,13 @@
+<!-- Ajout d'un indicateur de rechargement -->
+<div *ngIf="isReloading" class="reload-container">
+  <ion-icon class="reload-icon" name="reload"></ion-icon>
+  <span>Rechargement...</span>
+</div>
+
+<!-- Autres contenus de ta page -->
+
 <div class="container cart-container mt-4 mb-5">
-  <h1 class="text-center">🛒 Mon Panier</h1>
+  <h1 class="text-center p-2 text-warning">🛒 Mon Panier</h1>
 
   <div *ngIf="cartItems.length > 0; else emptyCart">
     <div class="cart-items">
@@ -19,6 +27,7 @@
               <ion-button (click)="increaseQuantity(item)" color="primary" fill="outline">➕</ion-button>
               <ion-button (click)="removeItem(item.id)" color="danger" fill="outline">
                 <ion-icon class="remove-button" name="trash-outline"></ion-icon>
+
               </ion-button>
             </div>
 

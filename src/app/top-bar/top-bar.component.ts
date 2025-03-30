@@ -5,7 +5,6 @@ import {NgIf} from '@angular/common';
 import {Router} from '@angular/router';
 
 
-
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',
@@ -16,9 +15,11 @@ import {Router} from '@angular/router';
   ],
   styleUrls: ['./top-bar.component.css']
 })
-export class TopBarComponent implements OnInit{
+export class TopBarComponent implements OnInit {
   user: any = null;
-  constructor(private navCtrl: NavController, private userService: ApiService,private router: Router) {}
+
+  constructor(private navCtrl: NavController, private userService: ApiService, private router: Router) {
+  }
 
   openCart() {
     console.log("Ouverture du cart...");

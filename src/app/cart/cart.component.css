@@ -136,12 +136,45 @@ ion-button[color="danger"] {
   margin-top: 30px;
 }
 
+.reload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-color,); /* Fond sombre semi-transparent */
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.reload-icon {
+  font-size: 30px; /* Agrandissement de l'icône pour plus de visibilité */
+  margin-right: 10px;
+  animation: rotate 1s infinite linear;
+  color: #00d4ff; /* Bleu clair avec un effet lumineux */
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
     max-width: 95%;
     padding: 0 !important;
-    
+
   }
 
 
@@ -185,3 +218,5 @@ ion-button[color="danger"] {
     margin-left: 0;
   }
 }
+
+
