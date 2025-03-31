@@ -14,6 +14,7 @@ import {ReglagesComponent} from './pages/reglages/reglages.component';
 import {ChangePasswordComponent} from './auth/change-password/change-password.component';
 import {RestPasswordComponent} from './auth/rest-password/rest-password.component';
 import {PasswordResetConfirmComponent} from './auth/password-reset-confirm/password-reset-confirm.component';
+import {OrderTrackingComponent} from './pages/order-tracking/order-tracking.component';
 
 export const routes: Routes = [
   //{ path: 'home', component: HomeComponent },
@@ -27,6 +28,7 @@ export const routes: Routes = [
   {path: 'centre-aide', component: HelpCenterComponent},
   {path: 'cart', component: CartComponent},
   {path: 'mes-commandes', component: MesCommandesComponent},
+  {path: 'suivi-commande', component: OrderTrackingComponent},
   {path: 'politiques-retour', component: PolitiquesRetourComponent},
   {path: 'settings', component: ReglagesComponent},
   {path: 'change-password', component: ChangePasswordComponent},

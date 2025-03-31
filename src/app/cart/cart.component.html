@@ -45,7 +45,7 @@
     </div>
     <div class="cart-footer d-flex justify-content-between ">
       <h3>Total: {{ totalPrice | number:'1.2-2' }} FCFA</h3>
-      <button (click)="checkout()" class="btn btn-primary w-50 mb-5">
+      <button (click)="payWithCinetPay()" class="btn btn-primary w-50 mb-5">
         Payer
         <ion-icon class="money" name="cash-outline"></ion-icon>
       </button>

@@ -1,0 +1,56 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card *ngIf="user" class="user-profile-card">
+          <ion-card-header>
+            <ion-card-title>{{ user.first_name }} {{ user.last_name }}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-list>
+              <ion-item button (click)="goToPage('/mes-commandes')">
+                <ion-icon name="cart" slot="start"></ion-icon>
+                <ion-label>Mes commandes</ion-label>
+                <ion-badge slot="end" color="primary">(3)</ion-badge>
+                <ion-icon name="chevron-forward" slot="end"></ion-icon>
+              </ion-item>
+
+              <ion-item button (click)="goToPage('/historique')">
+                <ion-icon name="time" slot="start"></ion-icon>
+                <ion-label>Historique</ion-label>
+                <ion-icon name="chevron-forward" slot="end"></ion-icon>
+              </ion-item>
+
+              <ion-item button (click)="goToPage('/adresse')">
+                <ion-icon name="location" slot="start"></ion-icon>
+                <ion-label>Adresse</ion-label>
+                <ion-icon name="chevron-forward" slot="end"></ion-icon>
+              </ion-item>
+
+              <ion-item button (click)="goToPage('/centre-aide')">
+                <ion-icon name="headset" slot="start"></ion-icon>
+                <ion-label>Centre d'aide</ion-label>
+                <ion-icon name="chevron-forward" slot="end"></ion-icon>
+              </ion-item>
+
+              <ion-item button (click)="goToPage('/politiques-retour')">
+                <ion-icon name="shield-checkmark-sharp" slot="start"></ion-icon>
+                <ion-label>Politiques de retour</ion-label>
+                <ion-icon name="chevron-forward" slot="end"></ion-icon>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-button expand="block" (click)="goToPage('/logout')">
+          Déconnexion
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> 

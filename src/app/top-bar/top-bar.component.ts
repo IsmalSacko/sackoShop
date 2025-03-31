@@ -3,7 +3,13 @@ import {IonicModule, NavController} from '@ionic/angular';
 import {ApiService} from '../services/api.service';
 import {NgIf} from '@angular/common';
 import {Router} from '@angular/router';
+import { addIcons } from 'ionicons';
+import { personCircleOutline } from 'ionicons/icons';
 
+// Ajouter les icônes
+addIcons({
+  'person-circle-outline': personCircleOutline
+});
 
 @Component({
   selector: 'app-top-bar',
@@ -11,7 +17,6 @@ import {Router} from '@angular/router';
   imports: [
     IonicModule,
     NgIf
-
   ],
   styleUrls: ['./top-bar.component.css']
 })
@@ -32,7 +37,6 @@ export class TopBarComponent implements OnInit {
   goToBack() {
     this.navCtrl.back();
   }
-
 
   async ngOnInit() {
     this.user = await this.userService.getUserInfo();

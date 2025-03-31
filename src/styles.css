@@ -39,9 +39,10 @@
 
 /* 🌍 Appliquer aux éléments globaux */
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(120deg, var(--secondary-color), var(--light-orange));
-  color: var(--dark-gray) !important;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #f8f9fa;
 }
 
 /* 🎨 Boutons */
@@ -70,7 +71,7 @@ input:focus {
   outline: none;
 }
 
-/* 🔔 Messages de succès et d’erreur */
+/* 🔔 Messages de succès et d'erreur */
 .success-message {
   color: var(--secondary-color);
 }
@@ -78,7 +79,6 @@ input:focus {
 .error-message {
   color: var(--danger-color);
 }
-
 
 @media screen and (max-width: 768px) {
   /* Couvre tous les mobiles et tablettes */
@@ -105,7 +105,6 @@ input:focus {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
 }
-
 
 /* Icône dans les champs */
 .input-icon {
@@ -176,11 +175,38 @@ input:focus {
   }
 }
 
-
 .toast-close-button {
   color: white !important; /* ✅ Mettre en blanc */
   font-size: 18px !important; /* Ajuster la taille */
 }
+
+.container {
+  padding: 20px;
+}
+
+.card {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: none;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'font-awesome/css/font-awesome.min.css';
 
 
 
